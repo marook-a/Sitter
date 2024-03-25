@@ -5,4 +5,6 @@ public class settings {
     public static String email = "sitter";
     public static String password = "sitter";
     public static String expectedTitle = "Jobs";
+
+    public static String message = "Hi, I provide sitter services";
 }

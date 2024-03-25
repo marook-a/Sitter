@@ -37,7 +37,6 @@ public class LoginPageTest {
         login_page.password.sendKeys(password);
         login_page.checkbox.click();
         login_page.btnLogIn.click();
-
         String actualTitle = driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/h1")).getText();
         assertEquals(actualTitle, expectedTitle);
 

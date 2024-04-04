@@ -10,12 +10,17 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 import java.util.Locale;
 
+
+import static settings.FakerSettings.faker_email;
+import static settings.FakerSettings.*;
 import static settings.settings.*;
 
 public class BadgesPageTest {
     private WebDriver driver;
     public BadgesPage badges_page;
     public Login_page login_page;
+
+    public FakerImageUploader fakerImageUploader;
 
     String FileJpeg = "/Users/fusion_tech/Desktop/sitter/testImg/test-img.jpeg";
 
@@ -44,7 +49,7 @@ public class BadgesPageTest {
         login_page.btnLogIn.click();
         badges_page.btnBadges.click();
         badges_page.uploadDoc.click();
-        badges_page.fileUpload.sendKeys(FileJpeg);
+        fakerImageUploader.uploadFile(" .jpeg");
         badges_page.btnSave.click();
     }
 }

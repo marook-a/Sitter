@@ -24,4 +24,5 @@ public class BadgesPage {
     public WebElement btnSave;
 
 
+
 }

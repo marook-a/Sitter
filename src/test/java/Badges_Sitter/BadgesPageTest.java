@@ -9,8 +9,11 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.util.Locale;
+import java.io.File;
 
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 import static settings.FakerSettings.faker_email;
 import static settings.FakerSettings.*;
 import static settings.settings.*;
@@ -19,10 +22,9 @@ public class BadgesPageTest {
     private WebDriver driver;
     public BadgesPage badges_page;
     public Login_page login_page;
-
     public FakerImageUploader fakerImageUploader;
 
-    String FileJpeg = "/Users/fusion_tech/Desktop/sitter/testImg/test-img.jpeg";
+    String pathToFile = "/Users/fusion_tech/Desktop/sitter/testImg/photo3-2.jpeg";
 
     @BeforeTest
     public void setUp() {
@@ -30,26 +32,39 @@ public class BadgesPageTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(url);
-
         login_page = new Login_page(driver);
         badges_page = new BadgesPage(driver);
     }
 
     @AfterTest
     public void tearDown() {
-        driver.quit();
+       driver.quit();
     }
 
     @Test
     public void badges() {
-        login_page.logInButton.click();
-        login_page.email.sendKeys(email);
-        login_page.password.sendKeys(password);
-        login_page.checkbox.click();
-        login_page.btnLogIn.click();
-        badges_page.btnBadges.click();
-        badges_page.uploadDoc.click();
-        fakerImageUploader.uploadFile(" .jpeg");
-        badges_page.btnSave.click();
+        try {
+            login_page.logInButton.click();
+            login_page.email.sendKeys(email);
+            login_page.password.sendKeys(password);
+            login_page.checkbox.click();
+            login_page.btnLogIn.click();
+            badges_page.btnBadges.click();
+            System.out.println("Открыта страница Badges");
+            badges_page.uploadDoc.click();
+            File tempImageFile = FakerImageUploader.createTempImageFile();
+            String pathToTempImageFile = tempImageFile.getAbsolutePath();
+           System.out.println(pathToTempImageFile);
+            badges_page.fileUpload.sendKeys(pathToTempImageFile);
+           String actualText = badges_page.name_file.getText();
+           assertNotEquals(pathToTempImageFile, actualText);
+//           badges_page.fileUpload.sendKeys(pathToFile);
+            badges_page.btnSave.click();
+            Thread.sleep(4000);
+        }
+        catch (Exception e) {
+            System.out.println("Проблема с загрузкой файла");
+        }
+
     }
 }

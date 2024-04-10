@@ -15,6 +15,7 @@ import java.util.Random;
 public class BadgesPage {
 
     public BadgesPage(WebDriver driver) {
+
         PageFactory.initElements(driver, this);
     }
 

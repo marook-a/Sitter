@@ -1,7 +1,5 @@
 package Badges_Sitter;
 
-import com.github.javafaker.Faker;
-import com.github.javafaker.File;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

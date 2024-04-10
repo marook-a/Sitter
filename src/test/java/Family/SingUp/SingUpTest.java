@@ -46,7 +46,7 @@ public class SingUpTest {
     }
 
     @Test
-     void singUp_profile() {
+     public void singUp_profile() {
         singUp_start();
 
     }
@@ -67,13 +67,6 @@ public class SingUpTest {
         sing_up.selectDropDown.click();
         sing_up.checkbox.click();
         sing_up.btnSingUp.click();
-    }    }
-
-    @Test
-    public void singUpSuccess() {
-        singUp_start();
-        sing_up_profile();
-
     }
 
 }

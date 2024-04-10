@@ -23,16 +23,16 @@ public class SingUp {
         @FindBy (xpath = "//*[@id='react-select-2-placeholder']")
         public WebElement selectArea;
 
-        @FindBy (xpath = "//*[@id='react-select-3-placeholder']")
+        @FindBy (xpath = "//*[@id=\"portal-full-screen\"]/div/div/form/div[3]/div/div/div[1]/div/div/div")
         public WebElement selectCity;
 
-        @FindBy(xpath = "//div[contains(@class, 'css-b62m3t-container')][.//*[@id='aria-context']]")
+        @FindBy(xpath = "//*[@id=\"react-select-3-placeholder\"]")
         public WebElement selectAboutUs;
 
-        @FindBy (xpath = "//html/body/div[2]/div/div/form/div[4]/div/div/div[2]/span")
+        @FindBy (xpath = "//*[@id=\"portal-full-screen\"]/div/div/form/div[4]/div/div/div[1]/div/div/div")
         public WebElement selectDropDown;
 
-        @FindBy (xpath = "//input[@type='checkbox']")
+        @FindBy (xpath = "//*[@id=\"portal-full-screen\"]/div/div/form/div[6]/div/label")
         public WebElement checkbox;
 
         @FindBy (xpath = "//button[@type='submit']")

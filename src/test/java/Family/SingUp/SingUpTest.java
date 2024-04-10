@@ -29,11 +29,11 @@ public class SingUpTest {
 
     @AfterTest
     public void tearDown() {
-        driver.quit();
+//        driver.quit();
     }
 
     @Test
-    public void singUp() {
+    public void singUp_start() {
         sing_up.btnParent.click();
         sing_up.email.sendKeys(generateRandomEmail());
         sing_up.password.sendKeys(password_singUp);
@@ -43,6 +43,37 @@ public class SingUpTest {
         sing_up.selectDropDown.click();
         sing_up.checkbox.click();
         sing_up.btnSingUp.click();
+    }
+
+    @Test
+     void singUp_profile() {
+        singUp_start();
+
+    }
+
+    @Test
+    public void singUp_family() {
+        singUp_start();
+    }
+
+    @Test
+    public void singUp_negative() {
+        sing_up.btnParent.click();
+        sing_up.email.sendKeys(generateRandomEmail());
+        sing_up.password.sendKeys("123");
+        sing_up.selectArea.click();
+        sing_up.selectCity.click();
+        sing_up.selectAboutUs.click();
+        sing_up.selectDropDown.click();
+        sing_up.checkbox.click();
+        sing_up.btnSingUp.click();
+    }    }
+
+    @Test
+    public void singUpSuccess() {
+        singUp_start();
+        sing_up_profile();
+
     }
 
 }

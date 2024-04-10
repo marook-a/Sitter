@@ -8,15 +8,12 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
-import java.util.Locale;
 import java.io.File;
 
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
-import static settings.FakerSettings.faker_email;
-import static settings.FakerSettings.*;
-import static settings.settings.*;
+import static settings.settings_sitter.*;
 
 public class BadgesPageTest {
     private WebDriver driver;

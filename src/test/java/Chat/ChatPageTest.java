@@ -11,7 +11,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static settings.settings.*;
+import static settings.settings_sitter.*;
 import java.time.Duration;
 
 public class ChatPageTest {

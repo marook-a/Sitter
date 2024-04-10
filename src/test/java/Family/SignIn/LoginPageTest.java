@@ -1,4 +1,4 @@
-package Sitter.login_page;
+package Family.SignIn;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,8 +6,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import java.time.Duration;
+
 import static org.testng.Assert.assertEquals;
+import static settings.settings_family.email_family;
+import static settings.settings_family.password_family;
 import static settings.settings_sitter.*;
 
 public class LoginPageTest {
@@ -33,8 +37,8 @@ public class LoginPageTest {
     @Test
     public void login() {
         login_page.logInButton.click();
-        login_page.email.sendKeys(email);
-        login_page.password.sendKeys(password);
+        login_page.email.sendKeys(email_family);
+        login_page.password.sendKeys(password_family);
         login_page.checkbox.click();
         login_page.btnLogIn.click();
         String actualTitle = driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/h1")).getText();

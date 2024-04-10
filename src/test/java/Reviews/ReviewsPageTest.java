@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 import static org.testng.Assert.assertTrue;
-import static settings.settings.*;
+import static settings.settings_sitter.*;
 
 public class ReviewsPageTest {
 

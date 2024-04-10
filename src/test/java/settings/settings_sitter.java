@@ -1,8 +1,7 @@
 package settings;
 
-import com.github.javafaker.Faker;
 
-public class settings {
+public class settings_sitter {
     public static String url = "https://staging.sittertree.com/signup";
     public static String email = "sitter";
     public static String password = "sitter";

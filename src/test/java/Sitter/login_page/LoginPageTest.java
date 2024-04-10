@@ -8,7 +8,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import java.time.Duration;
 import static org.testng.Assert.assertEquals;
-import static settings.settings_sitter.*;
+import static settings.settings.*;
 
 public class LoginPageTest {
     private WebDriver driver;
@@ -20,7 +20,7 @@ public class LoginPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
 
         login_page = new Login_page(driver);
     }
@@ -33,8 +33,8 @@ public class LoginPageTest {
     @Test
     public void login() {
         login_page.logInButton.click();
-        login_page.email.sendKeys(email);
-        login_page.password.sendKeys(password);
+        login_page.email.sendKeys(email_sitter);
+        login_page.password.sendKeys(password_sitter);
         login_page.checkbox.click();
         login_page.btnLogIn.click();
         String actualTitle = driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/h1")).getText();

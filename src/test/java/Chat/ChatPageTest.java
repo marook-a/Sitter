@@ -11,8 +11,9 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import static settings.settings_sitter.*;
 import java.time.Duration;
+
+import static settings.settings.*;
 
 public class ChatPageTest {
     private WebDriver driver;
@@ -24,7 +25,7 @@ public class ChatPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
 
         login_page = new Login_page(driver);
         chat_page = new ChatPage(driver);
@@ -38,8 +39,8 @@ public class ChatPageTest {
     @Test
     public void chat() {
         login_page.logInButton.click();
-        login_page.email.sendKeys(email);
-        login_page.password.sendKeys(password);
+        login_page.email.sendKeys(email_sitter);
+        login_page.password.sendKeys(password_sitter);
         login_page.checkbox.click();
         login_page.btnLogIn.click();
         chat_page.btnChat.click();

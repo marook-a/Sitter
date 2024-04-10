@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 import java.io.File;
+import static settings.settings.*;
+
 
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
-import static settings.settings_sitter.*;
 
 public class BadgesPageTest {
     private WebDriver driver;
@@ -28,7 +29,7 @@ public class BadgesPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
         login_page = new Login_page(driver);
         badges_page = new BadgesPage(driver);
     }
@@ -42,8 +43,8 @@ public class BadgesPageTest {
     public void badges() {
         try {
             login_page.logInButton.click();
-            login_page.email.sendKeys(email);
-            login_page.password.sendKeys(password);
+            login_page.email.sendKeys(email_sitter);
+            login_page.password.sendKeys(password_sitter);
             login_page.checkbox.click();
             login_page.btnLogIn.click();
             badges_page.btnBadges.click();

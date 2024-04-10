@@ -6,7 +6,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import static settings.FakerSettings.generateRandomEmail;
-import static settings.settings_family.*;
+import static settings.settings.*;
 
 import java.time.Duration;
 
@@ -22,7 +22,7 @@ public class SingUpTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
 
         sing_up = new SingUp(driver);
     }
@@ -34,6 +34,7 @@ public class SingUpTest {
 
     @Test
     public void singUp_start() {
+        sing_up.SignUpButton.click();
         sing_up.btnParent.click();
         sing_up.email.sendKeys(generateRandomEmail());
         sing_up.password.sendKeys(password_singUp);

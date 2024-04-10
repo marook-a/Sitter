@@ -11,6 +11,8 @@ public class SingUp {
         PageFactory.initElements(driver, this);
     }
 
+        @FindBy (xpath = "//*[@id=\"content\"]/div/div/div/ul[2]/li/a")
+        public WebElement SignUpButton;
         @FindBy(xpath = "//a[@href='/family/signup']")
         public WebElement btnParent;
 

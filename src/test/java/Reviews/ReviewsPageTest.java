@@ -10,9 +10,10 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import static settings.settings.*;
+
 
 import static org.testng.Assert.assertTrue;
-import static settings.settings_sitter.*;
 
 public class ReviewsPageTest {
 
@@ -25,7 +26,7 @@ public class ReviewsPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
 
         login_page = new Login_page(driver);
         reviews_page = new ReviewsPage(driver);
@@ -41,8 +42,8 @@ public class ReviewsPageTest {
     public void reviews() {
         try {
             login_page.logInButton.click();
-            login_page.email.sendKeys(email);
-            login_page.password.sendKeys(password);
+            login_page.email.sendKeys(email_sitter);
+            login_page.password.sendKeys(password_sitter);
             login_page.checkbox.click();
             login_page.btnLogIn.click();
             reviews_page.btnReviews.click();

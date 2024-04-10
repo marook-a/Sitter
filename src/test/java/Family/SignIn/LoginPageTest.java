@@ -10,9 +10,7 @@ import org.testng.annotations.Test;
 import java.time.Duration;
 
 import static org.testng.Assert.assertEquals;
-import static settings.settings_family.email_family;
-import static settings.settings_family.password_family;
-import static settings.settings_sitter.*;
+import static settings.settings.*;
 
 public class LoginPageTest {
     private WebDriver driver;
@@ -24,7 +22,7 @@ public class LoginPageTest {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url);
+        driver.get(url_dev);
 
         login_page = new Login_page(driver);
     }
@@ -43,6 +41,12 @@ public class LoginPageTest {
         login_page.btnLogIn.click();
         String actualTitle = driver.findElement(By.xpath("/html/body/div[2]/section/div[1]/div/h1")).getText();
         assertEquals(actualTitle, expectedTitle);
+
+    }
+
+    @Test
+    public void login_negative() {
+        login_page.logInButton.click();
 
     }
 

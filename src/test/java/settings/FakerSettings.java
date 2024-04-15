@@ -7,12 +7,13 @@ import java.util.Locale;
 public class FakerSettings {
     public static Faker faker = new Faker(new Locale("en"));
 
-    public static String fake_name = faker.name().fullName();
+   // String female_fake_name = faker.name().firstName(Gender.FEMALE);
 
     public static String faker_jpegFileName = faker.file().fileName();
 
-    public static String address = faker.address().fullAddress();
-    public static String faker_email = faker.internet().emailAddress();
+    public static String faker_address = faker.address().fullAddress();
+
+    public static String faker_phone = faker.phoneNumber().phoneNumber();
 
     public static String generateRandomEmail() {
         Faker faker = new Faker();
@@ -24,9 +25,8 @@ public class FakerSettings {
         public static void main(String[] args) {
         String randomEmail = generateRandomEmail();
         System.out.println(randomEmail);
+        }
     }
 
- //       public static void main(String[] args) {
- //           // ваш код метода main здесь
 
-    }
+

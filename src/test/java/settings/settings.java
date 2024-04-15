@@ -11,7 +11,9 @@ public class settings {
     public static String state = "GA";
     public static String zipCode = "30318";
 
-    public static String expectedTitle = "Jobs";
+    public static String expectedTitle_sitter = "Jobs";
+    public static String expectedTitle_family = "SET UP ACCOUNT";
+    public static String expectedTitle_add = "add member";
 
     public static String message = "Hi, I provide sitter services";
 

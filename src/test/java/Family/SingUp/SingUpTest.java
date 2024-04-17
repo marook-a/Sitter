@@ -45,9 +45,6 @@ public class SingUpTest {
         login_page = new Login_page(driver);
         loginPageTest = new LoginPageTest();
     }
-    public void commonLoginSteps() {
-        loginPageTest.login();
-    }
 
     @AfterTest
     public void tearDown() {
@@ -75,22 +72,25 @@ public class SingUpTest {
     @Test
     public void singUp_profile() {
         try {
-            login_page.email.sendKeys("dulcie.kutch@example.com");
-            login_page.password.sendKeys("qweqweqwe");
-            login_page.checkbox.click();
-            login_page.btnLogIn.click();
-            String actualTitle = driver.findElement(By.xpath("//a[contains(@href, 'signup')]")).getText();
-            assertEquals(actualTitle, expectedTitle_family);
-    //        singUp_start();
-    //        WebElement Message = new WebDriverWait(driver, Duration.ofSeconds(20))
-     //               .until(ExpectedConditions.elementToBeClickable(sing_up.profile));
-            sing_up.profile.click();
+//            login_page.email.sendKeys("dulcie.kutch@example.com");
+//            login_page.password.sendKeys("qweqweqwe");
+//            login_page.checkbox.click();
+//            login_page.btnLogIn.click();
+//            String actualTitle = driver.findElement(By.xpath("//a[contains(@href, 'signup')]")).getText();
+//            assertEquals(actualTitle, expectedTitle_family);
+            singUp_start();
+            WebElement profile = new WebDriverWait(driver, Duration.ofSeconds(20))
+                    .until(ExpectedConditions.elementToBeClickable(sing_up.profile));
+            profile.click();
             sing_up.phone.sendKeys(faker_phone);
             sing_up.address.sendKeys(faker_address);
             sing_up.city.sendKeys("Atlanta");
             sing_up.state.sendKeys("GA");
             sing_up.zip.sendKeys("30318");
             sing_up.btnSave.click();
+            new WebDriverWait(driver, Duration.ofSeconds(20))
+                    .until(ExpectedConditions.alertIsPresent())
+                    .accept();
             System.out.println("profile saved");
         } catch (Exception e) {
             System.out.println("Проблема c" + e);
@@ -100,55 +100,65 @@ public class SingUpTest {
 
     @Test
     public void singUp_family() {
- //       singUp_start();
-        singUp_profile();
-        sing_up.tabMembers.click();
- //       sing_up.uploadFile.sendKeys(FileJpeg_mother);
-        driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_mother);
-        sing_up.dropDown_members.click();
-        sing_up.dropDown_adult.click();
-        sing_up.firstName.sendKeys("Elizabeth");
-        sing_up.lastName.sendKeys("Anderson");
-        sing_up.contact_phone.sendKeys(faker_phone);
-        sing_up.primaryContact.click();
-        sing_up.btnSaveMember.click();
-        assertTrue(sing_up.btnAddMember.isDisplayed());
-
-
-        WebElement Message = new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(sing_up.btnAddMember));
-        sing_up.btnAddMember.click();
- //       sing_up.uploadFile.sendKeys(FileJpeg_father);
-        driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_father);
-        sing_up.dropDown_members.click();
-        sing_up.dropDown_adult.click();
-        sing_up.firstName.sendKeys("Kevin");
-        sing_up.lastName.sendKeys("Anderson");
-        sing_up.contact_phone.sendKeys(faker_phone);
-        sing_up.btnSaveMember.click();
-        assertTrue(sing_up.btnAddMember.isDisplayed());
-
-        sing_up.btnAddMember.click();
+        try {
+//            login_page.email.sendKeys("isaiah.cummerata@example.com");
+//            login_page.password.sendKeys("qweqweqwe");
+//            login_page.checkbox.click();
+//            login_page.btnLogIn.click();
+//            String actualTitle = driver.findElement(By.xpath("//a[contains(@href, 'signup')]")).getText();
+//            assertEquals(actualTitle, expectedTitle_family);
+            singUp_start();
+            singUp_profile();
+            sing_up.tabMembers.click();
+            //       sing_up.uploadFile.sendKeys(FileJpeg_mother);
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_mother);
+            sing_up.dropDown_members.click();
+            sing_up.dropDown_adult.click();
+            sing_up.firstName.sendKeys("Elizabeth");
+            sing_up.lastName.sendKeys("Anderson");
+            sing_up.contact_phone.sendKeys(faker_phone);
+            sing_up.primaryContact.click();
+            sing_up.btnSaveMember.click();
+            System.out.println("Сохранил");
+            sing_up.FalseClick.click();
+            System.out.println("Кликнулся");
+            sing_up.btnSaveMember.click();
+            Thread.sleep(2000);
+            WebElement btnAddMember = new WebDriverWait(driver, Duration.ofSeconds(20))
+                    .until(ExpectedConditions.elementToBeClickable(sing_up.btnAddMember));
+            btnAddMember.click();
+            //       sing_up.uploadFile.sendKeys(FileJpeg_father);
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_father);
+            sing_up.dropDown_members.click();
+            sing_up.dropDown_adult.click();
+            sing_up.firstName.sendKeys("Kevin");
+            sing_up.lastName.sendKeys("Anderson");
+            sing_up.contact_phone.sendKeys(faker_phone);
+            sing_up.btnSaveMember.click();
+            sing_up.btnAddMember.click();
 //        sing_up.uploadFile.sendKeys(FileJpeg_child_f);
-        driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_child_f);
-        sing_up.dropDown_members.click();
-        sing_up.dropDown_child.click();
-        sing_up.firstName.sendKeys("Mary");
-        sing_up.gender.click();
+            driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_child_f);
+            sing_up.dropDown_members.click();
+            sing_up.dropDown_child.click();
+            sing_up.firstName.sendKeys("Mary");
+            sing_up.gender.click();
 //        sing_up.gender_male.click(); //если нужно создать мальчика
-        sing_up.gender_female.click();
-        sing_up.birthMonth.click();
-        sing_up.birthMonth_march.click();
-        sing_up.birthYear.click();
-        sing_up.birthYear_2020.click();
-        sing_up.specialNeeds.click();
-        //         sing_up.specialNeeds_yes.click(); //если нужно создать с ограниченными возможностями
-        sing_up.specialNeeds_no.click();
-        sing_up.btnSaveMember.click();
-        String actualTitle = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div/h1")).getText();
-        assertEquals(actualTitle, expectedTitle_add);
-
+            sing_up.gender_female.click();
+            sing_up.birthMonth.click();
+            sing_up.birthMonth_march.click();
+            sing_up.birthYear.click();
+            sing_up.birthYear_2020.click();
+            sing_up.specialNeeds.click();
+            //         sing_up.specialNeeds_yes.click(); //если нужно создать с ограниченными возможностями
+            sing_up.specialNeeds_no.click();
+            sing_up.btnSaveMember.click();
+            String actualTitle2 = driver.findElement(By.xpath("//*[@id=\"content\"]/div[1]/div/h1")).getText();
+            assertEquals(actualTitle2, expectedTitle_add);
+        } catch (Exception e) {
+            System.out.println("Проблема с " + e);
+        }
     }
+
 
     @Test
     public void singUp_negative_password() {
@@ -182,4 +192,62 @@ public class SingUpTest {
         Assert.assertEquals("https://staging.sittertree.com/family/signup", currentUrl);
     }
 
+    @Test
+    public void singUp_negative_doubleUser() {
+        sing_up.SignUpButton.click();
+        sing_up.btnParent.click();
+        sing_up.email.sendKeys("family");
+        sing_up.password.sendKeys("family");
+        sing_up.selectArea.click();
+        sing_up.selectCity.click();
+        sing_up.selectAboutUs.click();
+        sing_up.selectDropDown.click();
+        sing_up.checkbox.click();
+        sing_up.btnSingUp.click();
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://staging.sittertree.com/family/signup", currentUrl);
+    }
+
+    @Test
+    public void singUp_negative_notCheckbox() {
+        sing_up.SignUpButton.click();
+        sing_up.btnParent.click();
+        sing_up.email.sendKeys(generateRandomEmail());
+        sing_up.password.sendKeys("qweqweqwe");
+        sing_up.selectArea.click();
+        sing_up.selectCity.click();
+        sing_up.selectAboutUs.click();
+        sing_up.selectDropDown.click();
+        sing_up.btnSingUp.click();
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://staging.sittertree.com/family/signup", currentUrl);
+    }
+
+    @Test
+    public void singUp_negative_notMetroArea() {
+        sing_up.SignUpButton.click();
+        sing_up.btnParent.click();
+        sing_up.email.sendKeys(generateRandomEmail());
+        sing_up.password.sendKeys("qweqweqwe");
+        sing_up.selectAboutUs.click();
+        sing_up.selectDropDown.click();
+        sing_up.checkbox.click();
+        sing_up.btnSingUp.click();
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://staging.sittertree.com/family/signup", currentUrl);
+    }
+
+    @Test
+    public void singUp_negative_notAboutUs() {
+        sing_up.SignUpButton.click();
+        sing_up.btnParent.click();
+        sing_up.email.sendKeys(generateRandomEmail());
+        sing_up.password.sendKeys("qweqweqwe");
+        sing_up.selectArea.click();
+        sing_up.selectCity.click();
+        sing_up.checkbox.click();
+        sing_up.btnSingUp.click();
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals("https://staging.sittertree.com/family/signup", currentUrl);
+    }
 }

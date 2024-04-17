@@ -33,9 +33,9 @@ public class LoginPageTest {
     }
 
     @Test
-    public void login() {
+    public void succesLogin() {
         try {
-        login_page.email.sendKeys("dulcie.kutch@example.com");
+        login_page.email.sendKeys("isaiah.cummerata@example.com");
         login_page.password.sendKeys("qweqweqwe");
         login_page.checkbox.click();
         login_page.btnLogIn.click();

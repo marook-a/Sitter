@@ -1,9 +1,14 @@
 package Family.SingUp;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SingUp {
 
@@ -118,11 +123,18 @@ public class SingUp {
         @FindBy (xpath = "//*[@id=\"is_primary_contact\"]")
         public WebElement primaryContact;
 
-        @FindBy (xpath = "//*[@id=\"family-member-container\"]/div/form/div/button")
+        @FindBy (xpath = "/html/body/div[2]/section/div[2]/div/div[3]/div/form/div/button")
         public WebElement btnSaveMember;
 
         @FindBy (xpath = "//*[@id=\"family-member-container\"]/div/div[1]/button")
         public WebElement btnAddMember;
+
+        @FindBy (xpath = "//*[@id=\"family-member-container\"]/div/form/div/div[6]/label")
+        public WebElement FalseClick;
+
+
+
+
 
 
 

@@ -30,9 +30,9 @@ public class SingUpTest {
     public Login_page login_page;
     public LoginPageTest loginPageTest;
 
-    String FileJpeg_mother = "/Sitter/Img/mother.jpg";
-    String FileJpeg_father = "/Sitter/Img/father.jpg";
-    String FileJpeg_child_f = "/Sitter/Img/child.jpg";
+    String FileJpeg_mother = "/Users/fusion_tech/Desktop/sitter/testImg/kartinki-schastlivoj-semi-30.jpeg";
+    String FileJpeg_father = "/Img/father.jpg";
+    String FileJpeg_child_f = "/Img/child.jpg";
     String FileJpeg_child_m = "/Users/fusion_tech/Desktop/sitter/testImg/Child-with-glasses-reading-a-book-1-1.webp";
 
     @BeforeTest
@@ -126,11 +126,15 @@ public class SingUpTest {
             System.out.println("Сохранил");
             sing_up.FalseClick.click();
             System.out.println("Кликнулся");
+            sing_up.tabPreferences.click();
+            sing_up.btnSaveMember.click();
+            sing_up.tabMembers.click();
             sing_up.btnSaveMember.click();
             Thread.sleep(2000);
             WebElement btnAddMember = new WebDriverWait(driver, Duration.ofSeconds(20))
                     .until(ExpectedConditions.elementToBeClickable(sing_up.btnAddMember));
-
+            sing_up.btnAddMember.click();
+            sing_up.tabMembers.click();
             btnAddMember.click();
             //       sing_up.uploadFile.sendKeys(FileJpeg_father);
             driver.findElement(By.xpath("//input[@type='file']")).sendKeys(FileJpeg_father);

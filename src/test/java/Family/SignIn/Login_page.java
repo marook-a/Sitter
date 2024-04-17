@@ -25,6 +25,15 @@ public class Login_page {
     @FindBy(css = "button[class='expand']")
     public WebElement btnLogIn;
 
+    @FindBy (xpath = "//*[@id=\"content\"]/div/div/div/ul[1]/li/a")
+    public WebElement btnForgotPassword;
+
+    @FindBy (xpath = "//*[@id=\"email\"]")
+    public WebElement emailForgotPassword;
+
+    @FindBy (xpath = "//*[@id=\"content\"]/div/div/div/form/div[2]/button")
+    public WebElement btnRContinue;
+
 }
 
 

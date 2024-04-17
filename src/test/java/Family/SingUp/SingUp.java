@@ -132,6 +132,10 @@ public class SingUp {
         @FindBy (xpath = "//*[@id=\"family-member-container\"]/div/form/div/div[6]/label")
         public WebElement FalseClick;
 
+        @FindBy (xpath = "//*[@id=\"content\"]/div[2]/div/div[1]/ul/li[3]/a")
+        public WebElement tabPreferences;
+
+
 
 
 
